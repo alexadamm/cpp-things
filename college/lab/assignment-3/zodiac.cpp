@@ -51,14 +51,7 @@ int main(int argc, char const *argv[])
     cin >> month;
     cout << "input number of date: ";
     cin >> date;
-    if (isValidDate(month, date))
-    {
-        zodiak = zodiac(month, date);
-        cout << "your zodiac is " << zodiak << endl;
-    }
-    else
-    {
-        cout << "invalid input!" << endl;
-    }
+    (isValidDate(month, date)) ? cout << "your zodiac is " << zodiac(month, date) << endl
+                               : cout << "invalid input!" << endl;
     return 0;
 }

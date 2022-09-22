@@ -19,13 +19,8 @@ int main(int argc, char const *argv[])
         isLeap = true;
     }
 
-    if (isLeap)
-    {
-        cout << year << " is a leap year" << endl;
-    }
-    else
-    {
-        cout << year << " is not a leap year" << endl;
-    }
+    (isLeap) ? cout << year << " is a leap year" << endl
+             : cout << year << " is not a leap year" << endl;
+
     return 0;
 }

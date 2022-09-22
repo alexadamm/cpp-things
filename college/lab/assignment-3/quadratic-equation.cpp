@@ -36,11 +36,11 @@ int main(int argc, char const *argv[])
         ixl = -b / (2 * a);
         ixr = sqrt(-d) / (2 * a);
         cout << "root of the equation is imaginary, with" << endl;
-        (ixl == 0 ? (cout << "x1 = " << ixr << "i"
+        (ixl == 0) ? cout << "x1 = " << ixr << "i"
                           << " and "
-                          << "x2 = " << -ixr << "i" << endl)
-                  : (cout << "x1 = " << ixl << "+" << ixr << "i"
+                          << "x2 = " << -ixr << "i" << endl
+                   : cout << "x1 = " << ixl << "+" << ixr << "i"
                           << " and "
-                          << "x2 = " << ixl << "-" << ixr << "i" << endl));
+                          << "x2 = " << ixl << "-" << ixr << "i" << endl;
     }
 }
