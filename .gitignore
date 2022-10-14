@@ -3,6 +3,6 @@
 
 # unignore all files with extensions
 !*.*
-
+*.exe
 # unignore all dirs
 !*/
