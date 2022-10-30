@@ -44,9 +44,9 @@ struct vector vectorCrossProduct(vector A, vector B) {
 // Vector projection function to find the projection of vector A onto vector B bt using two vectors as parameters
 struct vector vectorProjection(vector A, vector B) {
     struct vector C;
-    C.i = vectorDotProduct(A, B) / sqrt(vectorLength(B)) * B.i;
-    C.j = vectorDotProduct(A, B) / sqrt(vectorLength(B)) * B.j;
-    C.k = vectorDotProduct(A, B) / sqrt(vectorLength(B)) * B.k;
+    C.i = vectorDotProduct(A, B) / pow(vectorLength(B), 2) * B.i;
+    C.j = vectorDotProduct(A, B) / pow(vectorLength(B), 2) * B.j;
+    C.k = vectorDotProduct(A, B) / pow(vectorLength(B), 2) * B.k;
     return C;
 }
 
