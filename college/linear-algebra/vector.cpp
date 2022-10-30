@@ -50,8 +50,24 @@ struct vector vectorProjection(vector A, vector B) {
     return C;
 }
 
-int start(vector A, vector B, vector C) {
-    cout << "----------------- Vector Operations -----------------" << endl;
+void vectorInput(vector& V, string name) {
+    cout << "Enter the vector " << name << " length x side: ";
+    cin >> V.i;
+    cout << "Enter the vector " << name << " length y side: ";
+    cin >> V.j;
+    cout << "Enter the vector " << name << " length z side: ";
+    cin >> V.k;
+    cout << endl;
+}
+
+void operationScreen(vector& A, vector& B, string name) {
+    cout << endl << "----------------- " << name << " -----------------" << endl;
+    vectorInput(A, "A");
+    vectorInput(B, "B");
+}
+
+void start(vector A, vector B, vector C) {
+    cout << endl << "----------------- Vector Operations -----------------" << endl;
     cout << "1. Vector Length" << endl;
     cout << "2. Vector Addition" << endl;
     cout << "3. Vector Angle" << endl;
@@ -67,106 +83,31 @@ int start(vector A, vector B, vector C) {
     {
     case 1:
         cout << endl << "----------------- Vector Length -----------------" << endl;
-        cout << "Enter the vector length x side: ";
-        cin >> A.i;
-        cout << "Enter the vector length y side: ";
-        cin >> A.j;
-        cout << "Enter the vector length z side: ";
-        cin >> A.k;
-        cout << "The length of the vector is: " << vectorLength(A) << endl << endl;
+        vectorInput(A, "A");
+        cout << "The length of the vector is: " << vectorLength(A) << endl;
         break;
     case 2:
-        cout << endl << "----------------- Vector Addition -----------------" << endl;
-        cout << "Enter the vector A x side: ";
-        cin >> A.i;
-        cout << "Enter the vector A y side: ";
-        cin >> A.j;
-        cout << "Enter the vector A z side: ";
-        cin >> A.k;
-        cout << endl;
-        cout << "Enter the vector B x side: ";
-        cin >> B.i;
-        cout << "Enter the vector B y side: ";
-        cin >> B.j;
-        cout << "Enter the vector B z side: ";
-        cin >> B.k;
-        cout << endl; 
+        operationScreen(A, B, "Vector Addition");
         C = vectorAdd(A, B);
-        cout << endl << "The vector A + B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl << endl;
+        cout << "The vector A + B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl;
         break;
     case 3:
-        cout << endl << "----------------- Vector Angle -----------------" << endl;
-        cout << "Enter the vector A x side: ";
-        cin >> A.i;
-        cout << "Enter the vector A y side: ";
-        cin >> A.j;
-        cout << "Enter the vector A z side: ";
-        cin >> A.k;
-        cout << endl; 
-        cout << "Enter the vector B x side: ";
-        cin >> B.i;
-        cout << "Enter the vector B y side: ";
-        cin >> B.j;
-        cout << "Enter the vector B z side: ";
-        cin >> B.k;
-        cout << endl; 
-        cout << endl << "The angle between vector A and B is: " << vectorAngle(A, B) << "°" << endl << endl;
+        operationScreen(A, B, "Vector Angle");
+        cout << "The angle between vector A and B is: " << vectorAngle(A, B) << "°" << endl;
         break;
     case 4:
-        cout << endl << "----------------- Vector Dot Product -----------------" << endl;
-        cout << "Enter the vector A x side: ";
-        cin >> A.i;
-        cout << "Enter the vector A y side: ";
-        cin >> A.j;
-        cout << "Enter the vector A z side: ";
-        cin >> A.k;
-        cout << endl; 
-        cout << "Enter the vector B x side: ";
-        cin >> B.i;
-        cout << "Enter the vector B y side: ";
-        cin >> B.j;
-        cout << "Enter the vector B z side: ";
-        cin >> B.k;
-        cout << endl;
-        cout << endl << "The dot product of vector A and B is: " << vectorDotProduct(A, B) << endl << endl;
+        operationScreen(A, B, "Vector Dot Product");
+        cout << "The dot product of vector A and B is: " << vectorDotProduct(A, B) << endl;
         break;
     case 5:
-        cout << endl << "----------------- Vector Cross Product -----------------" << endl;
-        cout << "Enter the vector A x side: ";
-        cin >> A.i;
-        cout << "Enter the vector A y side: ";
-        cin >> A.j;
-        cout << "Enter the vector A z side: ";
-        cin >> A.k;
-        cout << endl; 
-        cout << "Enter the vector B x side: ";
-        cin >> B.i;
-        cout << "Enter the vector B y side: ";
-        cin >> B.j;
-        cout << "Enter the vector B z side: ";
-        cin >> B.k;
-        cout << endl;
+        operationScreen(A, B, "Vector Cross Product");
         C = vectorCrossProduct(A, B);
-        cout << endl << "The cross product of vector A and B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl << endl;
+        cout << "The cross product of vector A and B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl;
         break;
     case 6:
-        cout << endl << "----------------- Vector Projection -----------------" << endl;
-        cout << "Enter the vector A x side: ";
-        cin >> A.i;
-        cout << "Enter the vector A y side: ";
-        cin >> A.j;
-        cout << "Enter the vector A z side: ";
-        cin >> A.k;
-        cout << endl; 
-        cout << "Enter the vector B x side: ";
-        cin >> B.i;
-        cout << "Enter the vector B y side: ";
-        cin >> B.j;
-        cout << "Enter the vector B z side: ";
-        cin >> B.k;
-        cout << endl;
+        operationScreen(A, B, "Vector Projection");
         C = vectorProjection(A, B);
-        cout << endl << "The projection of vector A on B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl << endl;
+        cout << "The projection of vector A on B is: " << C.i << "i + " << C.j << "j + " << C.k << "k" << endl;
         break;
     case 0:
         cout << "Exiting..." << endl;
@@ -174,9 +115,7 @@ int start(vector A, vector B, vector C) {
         break;
     default:
         cout << "Invalid choice" << endl;
-        break;    
     }
-    return 0;
 }
 
 int main(int argc, char const *argv[])
