@@ -29,7 +29,7 @@ float vectorDotProduct(vector A, vector B) {
 
 // Vector angle function of two vectors by using two vectors as parameters
 float vectorAngle(vector A, vector B) {
-    return acos((A.i * B.i + A.j * B.j + A.k * B.k) / (vectorLength(A) * vectorLength(B)));
+    return acos((A.i * B.i + A.j * B.j + A.k * B.k) / (vectorLength(A) * vectorLength(B))) * 180/M_PI;
 }
 
 // Cross product function of two vectors by using two vectors as parameters
@@ -110,7 +110,7 @@ int start(vector A, vector B, vector C) {
         cout << "Enter the vector B z side: ";
         cin >> B.k;
         cout << endl; 
-        cout << endl << "The angle between vector A and B is: " << vectorAngle(A, B) << " radians" << endl << endl;
+        cout << endl << "The angle between vector A and B is: " << vectorAngle(A, B) << "°" << endl << endl;
         break;
     case 4:
         cout << endl << "----------------- Vector Dot Product -----------------" << endl;
